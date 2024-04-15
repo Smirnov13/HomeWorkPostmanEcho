@@ -7,15 +7,15 @@ import static io.restassured.RestAssured.given;
 class PostmanTest {
     @Test
     void shouldReturnSendData() {
-//        String text = "Good job";
+        String text = "Good job";
         given()
                 .baseUri("https://postman-echo.com")
-                .body("text")
+                .body(text)
         .when()
                 .post("/post")
         .then()
                 .statusCode(200)
-                .body("data", org.hamcrest.Matchers.equalTo("Text"));
+                .body("data", org.hamcrest.Matchers.equalTo(text));
 
     }
 }
